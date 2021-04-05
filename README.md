@@ -1,6 +1,29 @@
+# Instalacja
+
+Żeby uruchomić aplicację może skorzystać z pliku ./install.sh . Tworzy on wirtualne środowisko i instaluje potrzebne pakiety (plik requirements.txt)
+
+
+# Uruchomienie
+
+## Development
+
+Uruchomienie na domyslnym serwerze - ./run_developlemnt.sh
+
+## Produkcja
+
+Uruchomienie na serwerze Gunicorn - ./run_production.sh
+
+
+# Uruchomienie
+
+Serwis został uruchomiony na pod następującym adresem:
+
+http://jmuras.com:5000/
+
+
 # Serwis dostarcza następujące endpointy:
 
-## 1. POST http://127.0.0.1:5000/train/{l}?k={k}
+## 1. POST /train/{l}?k={k}
 
   * l - ilość części na które należy podzielić zbiór 
   * k - liczba najbliższych obiektów dla których należy policzyć reprezentatywność (opcjonalnie)
@@ -33,7 +56,7 @@ Trening zaczęty
 }
 ```
 
-## 2. GET http://127.0.0.1:5000/status
+## 2. GET /status
 
 ### Przykładowe odpowiedzi:
 	
@@ -68,7 +91,7 @@ Trening zakończony błędami
 ```
 
 
-## POST http://127.0.0.1:5000/predict
+## POST /predict
 
 Body
 ```	
@@ -81,5 +104,5 @@ Przykładowa odpowiedź:
 
 # Uwagi
 * W produkcyjnym rozwiązaniu wytrenowane modele byłyby zapisaywane do plików i wczytywane przy starcie aplikacji
-* W produkcujnym rozwiązaniu użyłabym bazy danych, żeby śledzić modele zlecone do trenowania, ich czasy i zapisane pliki
+* W produkcyjnym rozwiązaniu użyłabym bazy danych, żeby śledzić modele zlecone do trenowania, ich czasy i zapisane pliki
 * Żeby serwis był bardziej responsywny zdecydowłam się utrzymywać 2 modele - jeden wytrenowany poprawnie, żeby zwracać predykcje i drugi, który zawierał ostatnio trenowany model
